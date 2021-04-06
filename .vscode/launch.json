@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // task
+            "name": "cl.exe - Criar e depurar o arquivo ativo",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "preLaunchTask": "JNetPort Build",
+
+            // command
+            "program": "bin/jnetport.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                { "name": "PATH", "value": "${env:JAVA_HOME}/bin/server" }
+            ],
+
+            // options
+            "stopAtEntry": false,
+            "externalConsole": false
+        }
+    ]
+}

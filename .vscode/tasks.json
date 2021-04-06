@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			// task
+			"label": "JNetPort Build",
+			"type": "cppbuild",
+			"dependsOn": [ "Set environment variables" ],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+
+			// command
+			"command": "cl.exe",
+			"args": [
+				// compile options
+				"/Zi",
+				"/EHsc",
+				"/Fo:jnetport.obj",
+				"/Fe:jnetport.exe",
+				"/I", "${env:JAVA_HOME}/include",
+				"/I", "${env:JAVA_HOME}/include/win32",
+				// source code
+				"${workspaceFolder}/src/jnetport.cpp",
+				// link options
+				"/link",
+				"${env:JAVA_HOME}/lib/jvm.lib"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/bin"
+			},
+
+			// options
+			"problemMatcher": [
+				"$msCompile"
+			]
+		}
+	]
+}
